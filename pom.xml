@@ -6,6 +6,7 @@
         <module>authorization-code</module>
         <module>implicit</module>
         <module>password</module>
+        <module>client-credentials</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
