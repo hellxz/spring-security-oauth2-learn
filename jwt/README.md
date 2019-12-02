@@ -44,3 +44,6 @@ Payload部分使用Base64Url进行加密
 
 ## 使用方式
 与普通的token使用一样，在请求头中添加`Authorization:Bearer 你的token`
+
+## 使用JWT的好处
+不使用session保持会话，实现无状态，从而容易扩展，对于分布式和微服务应用特别多
