@@ -10,12 +10,22 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class TokenDTO {
     @JsonProperty("access_token")
     private String accessToken;
+    @JsonProperty("refresh_token")
+    private String refreshToken;
     @JsonProperty("token_type")
     private String tokenType;
     @JsonProperty("expires_in")
     private String expiresIn;
     @JsonProperty("scope")
     private String scope;
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
 
     public String getAccessToken() {
         return accessToken;

@@ -25,14 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager() {
-        return authentication -> {
-            String username = authentication.getName();
-            if (StringUtils.isEmpty(username)) {
-                throw new UsernameNotFoundException("用户名找不到");
-            }
-            return new UsernamePasswordAuthenticationToken("hellxz", passwordEncoder().encode("xyz"), Collections.emptyList());
-        };
+    public AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
     }
 
     @Override

@@ -17,7 +17,11 @@
 - [x] password: 密码模式
 
 ## client端对接demo
-- [x] authorization-code-client : 使用RestTemplate和数据库实现的授权码模式手动对接客户端
+- [x] authorization-code/authorization-code-client-resttemplate-jdbc : 使用RestTemplate和数据库实现的授权码模式手动对接客户端
+
+## JWT
+- [x] jwt-authorization-server : 添加JWT实现token的授权服务器，这里开启了授权码与密码模式，支持refresh_token
+- [x] jwt-resource-server：普通资源服务器
 
 
 

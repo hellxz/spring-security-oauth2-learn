@@ -1,4 +1,5 @@
 # 授权码模式Demo
+此文档测试对象为`authorization-code-authorization-server`和`authorization-code-resource-server`
 ## 1. 获取授权码
 1. 用户（资源拥有者）浏览器访问  
 `http://localhost:8080/oauth/authorize?client_id=client-a&redirect_uri=http://localhost:9001/callback&response_type=code&scope=read_user_info`

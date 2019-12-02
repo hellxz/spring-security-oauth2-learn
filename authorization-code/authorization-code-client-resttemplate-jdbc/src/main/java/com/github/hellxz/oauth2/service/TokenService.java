@@ -51,7 +51,7 @@ public class TokenService {
         RequestEntity httpEntity = new RequestEntity<>(getHttpBody(code), getHttpHeaders(), HttpMethod.POST, URI.create(auth2ServerProperties.getTokenUrl()));
         ResponseEntity<TokenDTO> exchange = restTemplate.exchange(httpEntity, TokenDTO.class);
         if (exchange.getStatusCode().is2xxSuccessful()) {
-            System.out.println(exchange.getBody());
+            System.err.println(exchange.getBody());
             return Objects.requireNonNull(exchange.getBody()).getAccessToken();
         }
         throw new RuntimeException("请求令牌失败！");

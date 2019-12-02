@@ -7,7 +7,7 @@
         <module>implicit</module>
         <module>password</module>
         <module>client-credentials</module>
-        <module>authorization-code-client</module>
+        <module>jwt</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -25,6 +25,7 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-security-oauth2.version>2.4.0.RELEASE</spring-security-oauth2.version>
+        <spring-security-jwt.version>1.1.0.RELEASE</spring-security-jwt.version>
     </properties>
 
     <dependencyManagement>
