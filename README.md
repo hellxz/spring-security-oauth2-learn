@@ -8,13 +8,16 @@
 ## 基础演示demo功能说明
 > 以下Demo均使用内存保存token，仅用于测试
 
-[ x ] authorization-code : 授权码模式
+- [x] authorization-code : 授权码模式
 
-[ x ] client-credentials : 客户端模式
+- [x] client-credentials : 客户端模式
 
-[ x ] implicit: 隐式模式（简化模式）
+- [x] implicit: 隐式模式（简化模式）
 
-[ x ] password: 密码模式
+- [x] password: 密码模式
+
+## client端对接demo
+- [x] authorization-code-client : 使用RestTemplate和数据库实现的授权码模式手动对接客户端
 
 
 
