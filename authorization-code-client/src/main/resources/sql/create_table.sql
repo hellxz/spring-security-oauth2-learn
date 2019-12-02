@@ -14,4 +14,4 @@ create table if not exists client_user
 -- 每次启动清空上次用户表，仅用于测试
 truncate table client_user;
 -- 插入一个与授权服务器密码不一致的用户
-insert into client_user values (null,'hellxz','abc', null, null, null);
+insert into client_user values (null,'hellxz','$2a$10$iAEfWxvrLKt6bhBdkNsdCeMn6JEqrS8c6MF/pbbeAeCxVrgkH92Re', null, null, null);
