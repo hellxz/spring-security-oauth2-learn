@@ -14,7 +14,9 @@ JWT是一种自包含的加密token，整体分为三部分：
 其结构为`Header.Payload.Signature`
 
 e.g.  
-![](../../pictures/encoded-jwt3.png)
+
+![](https://github.com/hellxz/spring-security-oauth2-learn/blob/master/pictures/encoded-jwt3.png)
+
 ### Header
 Header这部分包含令牌所用的算法（alg：algorithm, 常用的有HMAC SHA256或RSA）和 令牌的类型（typ: Token Type，即JWT）
 未被加密前的样子就像
@@ -35,7 +37,7 @@ Payload这部分包含token的信息，这部分可以包含 已被注册信息�
 - "nbf" (Not Before) Claim
 - "iat" (Issued At) Claim
 - "jti" (JWT ID) Claim
-公有的信息、私有的信息都是自定义的，注意不要与官方给的冲突即可，另外注意保持参数尽量少且不要暴露隐私数据
+公有的信息、私有的信息都是自定义的，注意不要与官方给的冲突即可，另外注意保持参数尽量少且不要暴露隐私数据  
 
 Payload部分使用Base64Url进行加密
 ### Signature
