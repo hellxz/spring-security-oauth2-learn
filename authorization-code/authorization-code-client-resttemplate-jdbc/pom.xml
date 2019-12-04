@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>authorization-code-client-restemplate-jdbc</artifactId>
+    <artifactId>authorization-code-client-resttemplate-jdbc</artifactId>
 
     <dependencies>
         <dependency>
