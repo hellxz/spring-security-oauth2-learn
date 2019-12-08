@@ -4,9 +4,16 @@
     ```
     http://localhost:8080/oauth/authorize?client_id=client-a&redirect_uri=http://localhost:9001/callback&response_type=token&scope=read_user_info
     ```
-    > - `response_type`在简化模式下，传token
-    > - `state`这个字段可选填，在生产环境下可以传加密串用来验证授权回调请求可信
-    > - 注意： 简化模式（隐式授权模式）不需要client_secret                                                                                                                                                                                          >
+    请求参数列表：
+    - client_id=客户端id
+    - redirect_uri=回调url 一定要与授权服务器配置保持一致，否则得不到授权码
+    - response_type=token 简化模式必须是token
+    - scope=作用域 与授权服务器配置保持一致
+    - state=自定义串（可选）
+    
+
+    > `state`这个字段可选填，在生产环境下可以传加密串用来验证授权回调请求可信
+    > 注意： 简化模式（隐式授权模式）不需要client_secret                                                                                                                                                                                          >
                                                                                                                                                                                                      >
     
 2. 授权服务器返回token
