@@ -41,11 +41,19 @@ Payload这部分包含token的信息，这部分可以包含 已被注册信息�
 
 Payload部分使用Base64Url进行加密
 ### Signature
-签名部分使用Header中定义的算法与密钥，把经过Base64Url加密的`Header.Payload`进行加密，得出签名。用来验证此token可信
+签名部分使用Header中定义的算法与密钥，把经过Base64Url加密的`Header.Payload`进行加密，得出签名。用来验证此token是授权服务器颁发的，而不是伪造的
 
+demo中使用的是对称密钥加密
 
 ## 使用方式
 与普通的token使用一样，在请求头中添加`Authorization:Bearer 你的token`
 
 ## 使用JWT的好处
-不使用session保持会话，实现无状态，从而容易扩展，对于分布式和微服务应用特别多
+不使用session保持会话，实现无状态服务，避免大量session对服务器的资源使用，从而容易扩展，对于分布式和微服务应用特别多
+
+另外，一般来说，JWT是自包含的token，使用它授权服务器就只需要颁发一次token，资源服务器可以通过这个token直接解析出用户信息，同时也可以减少授权服务器的请求次数
+
+## 使用JWT的缺点
+缺点就是JWT的token没有立即revoke(收回)权限的功能，只能等待token过期
+
+所以，使用JWT时，请尽量设置较短的过期时间，保证服务安全
