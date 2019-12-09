@@ -9,12 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jwt</artifactId>
+    <artifactId>redis-token-saved</artifactId>
     <packaging>pom</packaging>
-
     <modules>
-        <module>jwt-authorization-server</module>
-        <module>jwt-resource-server</module>
+        <module>redis-token-saved-authorization-server</module>
     </modules>
 
     <dependencies>
@@ -25,9 +23,8 @@
             <version>${spring-security-oauth2.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-jwt</artifactId>
-            <version>${spring-security-jwt.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 </project>

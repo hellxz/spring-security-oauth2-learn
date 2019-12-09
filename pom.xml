@@ -8,6 +8,7 @@
         <module>password</module>
         <module>client-credentials</module>
         <module>jwt</module>
+        <module>redis-token-saved</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

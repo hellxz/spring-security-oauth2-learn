@@ -10,20 +10,4 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jwt-authorization-server</artifactId>
-
-    <dependencies>
-        <!-- Spring Security OAuth2 -->
-        <dependency>
-            <groupId>org.springframework.security.oauth</groupId>
-            <artifactId>spring-security-oauth2</artifactId>
-            <version>${spring-security-oauth2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-jwt</artifactId>
-            <version>${spring-security-jwt.version}</version>
-        </dependency>
-    </dependencies>
-
-
 </project>
