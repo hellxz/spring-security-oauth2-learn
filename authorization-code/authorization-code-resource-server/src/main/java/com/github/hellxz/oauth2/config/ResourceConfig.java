@@ -25,7 +25,9 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
     @Bean
     public RemoteTokenServices remoteTokenServices() {
         final RemoteTokenServices tokenServices = new RemoteTokenServices();
+        //设置授权服务器check_token端点完整地址
         tokenServices.setCheckTokenEndpointUrl("http://localhost:8080/oauth/check_token");
+        //设置客户端id与secret，注意：client_secret值不能使用passwordEncoder加密！
         tokenServices.setClientId("client-a");
         tokenServices.setClientSecret("client-a-secret");
         return tokenServices;
