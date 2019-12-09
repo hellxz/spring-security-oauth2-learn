@@ -11,6 +11,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 @EnableResourceServer
@@ -21,18 +23,18 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * 这里使用的是调用授权服务器接口进行校验token的，除了这种方式，如果授权服务器将token保存在某些存储器中，可以使用访问存储器来实现
-     */
-    @Primary
-    @Bean
-    public RemoteTokenServices remoteTokenServices() {
-        final RemoteTokenServices tokenServices = new RemoteTokenServices();
-        tokenServices.setCheckTokenEndpointUrl("http://localhost:8080/oauth/check_token");
-        tokenServices.setClientId("client-a");
-        tokenServices.setClientSecret("client-a-secret");
-        return tokenServices;
-    }
+//    /**
+//     * 这里使用的是调用授权服务器接口进行校验token的，除了这种方式，如果授权服务器将token保存在某些存储器中，可以使用访问存储器来实现
+//     */
+//    @Primary
+//    @Bean
+//    public RemoteTokenServices remoteTokenServices() {
+//        final RemoteTokenServices tokenServices = new RemoteTokenServices();
+//        tokenServices.setCheckTokenEndpointUrl("http://localhost:8080/oauth/check_token");
+//        tokenServices.setClientId("client-a");
+//        tokenServices.setClientSecret("client-a-secret");
+//        return tokenServices;
+//    }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -48,5 +50,25 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
         resources.resourceId("resource1").stateless(true);
+        resources.tokenStore(jwtTokenStore());
     }
+
+    /**
+     * jwt访问token转换器
+     */
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter(){
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setSigningKey("my-sign-key"); //资源服务器需要配置此选项方能解密jwt的token
+        return converter;
+    }
+
+    /**
+     * jwt的token存储对象
+     */
+    @Bean
+    public JwtTokenStore jwtTokenStore(){
+        return new JwtTokenStore(jwtAccessTokenConverter());
+    }
+
 }

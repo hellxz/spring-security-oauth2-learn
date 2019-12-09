@@ -21,7 +21,11 @@
 
 ## JWT
 - [x] jwt-authorization-server : 添加JWT实现token的授权服务器，这里开启了授权码与密码模式，支持refresh_token
-- [x] jwt-resource-server：普通资源服务器
+- [x] jwt-resource-server：资源服务器，本地校验jwt token，解析出用户信息
+
+## 使用Redis存储token
+- [x] redis-token-saved-authorization-server : 使用password与授权码模式，支持刷新token的授权服务器，token保存到redis中
+- [x] redis-token-saved-resource-server : 使用redis校验token的资源服务器
 
 
 
