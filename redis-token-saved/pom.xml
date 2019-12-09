@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>redis-token-saved-authorization-server</module>
+        <module>redis-token-saved-resource-server</module>
     </modules>
 
     <dependencies>
@@ -25,6 +26,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
         </dependency>
     </dependencies>
 </project>

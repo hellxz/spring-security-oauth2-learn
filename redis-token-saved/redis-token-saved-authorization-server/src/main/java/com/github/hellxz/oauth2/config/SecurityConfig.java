@@ -49,8 +49,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 //放行options方法请求
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers("/api/logout").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
     }
 
     @Bean
