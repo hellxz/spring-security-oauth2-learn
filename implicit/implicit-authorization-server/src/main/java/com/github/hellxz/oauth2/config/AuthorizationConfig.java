@@ -20,7 +20,7 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         //允许表单提交
         security.allowFormAuthenticationForClients()
-                .checkTokenAccess("isAuthenticated()");
+                .checkTokenAccess("permitAll()"); //参数与security访问控制一致
     }
 
     @Override
@@ -28,12 +28,14 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         // @formatter: off
         clients.inMemory()
                 .withClient("client-a") //client端唯一标识
-                    .secret(passwordEncoder.encode("client-a-secret")) //client-a的密码，这里的密码应该是加密后的
                     .authorizedGrantTypes("implicit") //授权模式标识
                     .accessTokenValiditySeconds(120) //访问令牌的有效期，这里设置120s
                     .scopes("read_user_info") //作用域
                     .resourceIds("resource1") //资源id
-                    .redirectUris("http://localhost:9001/callback"); //回调地址
+                    .redirectUris("http://localhost:9001/callback") //回调地址
+                    .and()
+                .withClient("resource-server") //资源服务器校验token时用的客户端信息，仅需要client_id与密码
+                    .secret(passwordEncoder.encode("test"));
         // @formatter: on
     }
 }
