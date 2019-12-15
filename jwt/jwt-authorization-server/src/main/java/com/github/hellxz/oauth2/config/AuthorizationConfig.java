@@ -1,7 +1,6 @@
 package com.github.hellxz.oauth2.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -33,7 +32,7 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         //允许表单提交
         security.allowFormAuthenticationForClients()
-                .checkTokenAccess("permitAll()")
+                .checkTokenAccess("permitAll()") //这里这两个配置只是用来测试使用，生产环境可以关闭，jwt不需要再去授权服务器校验token
                 .tokenKeyAccess("permitAll()");
     }
 
@@ -43,9 +42,8 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         clients.inMemory()
                 .withClient("client-a") //client端唯一标识
                     .secret(passwordEncoder.encode("client-a-secret")) //client-a的密码，这里的密码应该是加密后的
-                    .authorizedGrantTypes("authorization_code", "password", "refresh_token") //授权模式标识
+                    .authorizedGrantTypes("password", "refresh_token") //授权模式标识，开启刷新token功能
                     .scopes("read_user_info") //作用域
-                    .resourceIds("resource1") //资源id
                     .redirectUris("http://localhost:9001/callback"); //回调地址
 
         // @formatter: on
@@ -65,7 +63,7 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter(){
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey("my-sign-key"); //资源服务器需要配置此选项方能解密jwt的token
+        converter.setSigningKey("my-sign-key"); //密钥，默认是MAC对称加密
         return converter;
     }
 

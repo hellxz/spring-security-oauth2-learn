@@ -49,7 +49,6 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.resourceId("resource1").stateless(true);
         resources.tokenStore(jwtTokenStore());
     }
 
@@ -59,7 +58,7 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter(){
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey("my-sign-key"); //资源服务器需要配置此选项方能解密jwt的token
+        converter.setSigningKey("my-sign-key"); //与授权服务器相同的signingKey
         return converter;
     }
 
