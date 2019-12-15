@@ -16,9 +16,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
-import java.security.Key;
-import java.security.KeyPair;
-
 //授权服务器配置
 @Configuration
 @EnableAuthorizationServer //开启授权服务

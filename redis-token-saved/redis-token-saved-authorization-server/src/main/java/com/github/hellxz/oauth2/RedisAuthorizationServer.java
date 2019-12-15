@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 使用Jwt作为token, redis作为token存储的授权server
+ * redis作为token存储的授权server
  */
 @SpringBootApplication
 public class RedisAuthorizationServer {
