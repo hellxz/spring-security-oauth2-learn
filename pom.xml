@@ -9,6 +9,7 @@
         <module>client-credentials</module>
         <module>jwt</module>
         <module>redis-token-saved</module>
+        <module>uaa-interface-adapter-demo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

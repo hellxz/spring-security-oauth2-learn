@@ -18,6 +18,7 @@
 
 ## client端对接demo
 - [x] authorization-code/authorization-code-client-resttemplate-jdbc : 使用RestTemplate和数据库实现的授权码模式手动对接客户端
+- [x] uaa-interface-adapter-demo ： 使用OAuth2提供的工具类，实现的客户端模式与密码模式的登录功能适配，也可以作为不显示使用/oauth/token端点的适配层，提升代码灵活性
 
 ## JWT
 - [x] jwt-authorization-server : 添加JWT实现token的授权服务器，这里开启了授权码与密码模式，支持refresh_token
@@ -26,6 +27,5 @@
 ## 使用Redis存储token
 - [x] redis-token-saved-authorization-server : 使用password与授权码模式，支持刷新token的授权服务器，token保存到redis中
 - [x] redis-token-saved-resource-server : 使用redis校验token的资源服务器
-
 
 
