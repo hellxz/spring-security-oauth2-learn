@@ -35,4 +35,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         redisTokenStore.setPrefix("auth-token:");
         return redisTokenStore;
     }
+
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic();
+    }
 }
