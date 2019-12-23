@@ -1,0 +1,5 @@
+server:
+  port: 9001
+feign:
+  okhttp:
+    enabled: true
