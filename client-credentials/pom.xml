@@ -14,6 +14,7 @@
     <modules>
         <module>client-credentials-authorization-server</module>
         <module>client-credentials-resource-server</module>
+        <module>client-credentials-client</module>
     </modules>
 
     <dependencies>
