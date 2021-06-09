@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //@formatter:off
         http.authorizeRequests()
                 //仅放通登录接口
-                .antMatchers(HttpMethod.GET, "/", "/index", "/api/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/index", "/api/login", "/callback").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
