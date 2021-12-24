@@ -46,6 +46,7 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
                     .secret(passwordEncoder.encode("client-a-secret")) //client-a的密码，这里的密码应该是加密后的
                     .authorizedGrantTypes("client_credentials","password", "refresh_token") //授权模式标识，开启刷新token功能
                     .scopes("read_user_info", "service", "users") //作用域
+                    .resourceIds("resource1") //资源id，如不需限制资源id，注释此处即可
                     .redirectUris("http://localhost:9001/callback"); //回调地址
 
         // @formatter: on

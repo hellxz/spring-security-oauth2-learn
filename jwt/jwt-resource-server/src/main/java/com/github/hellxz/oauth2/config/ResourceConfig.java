@@ -54,7 +54,11 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.tokenStore(jwtTokenStore());
+    	//@formatter:off
+    	//如不需要限制资源id，请在授权配置处去除resourceIds的配置
+    	resources.resourceId("resource1")
+        		 .tokenStore(jwtTokenStore());
+    	//@formatter:on
     }
 
     /**
