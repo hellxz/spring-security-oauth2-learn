@@ -28,11 +28,19 @@
         <java.version>1.8</java.version>
         <spring-security-oauth2.version>2.4.0.RELEASE</spring-security-oauth2.version>
         <spring-security-jwt.version>1.1.0.RELEASE</spring-security-jwt.version>
+        <!-- 升级fastjson，修复远程代码执行漏洞 -->
         <fastjson.version>1.2.79</fastjson.version>
         <commons-codec.version>1.13</commons-codec.version>
         <commons-lang3.version>3.9</commons-lang3.version>
-        <mysql.version>8.0.18</mysql.version>
-        <spring-cloud-starter-openfeign.version>2.2.1.RELEASE</spring-cloud-starter-openfeign.version>
+        <!-- 升级mysql版本，修复CVE-2021-2471 -->
+        <mysql.version>8.0.28</mysql.version>
+        <!-- 升级openfeign版本，修复传递依赖commons-io 2.2导致的CVE-2021-29425 -->
+        <spring-cloud-starter-openfeign.version>2.2.10.RELEASE</spring-cloud-starter-openfeign.version>
+        <commons-io.version>2.11.0</commons-io.version>
+        <!-- 升级spring框架版本，修复CVE-2020-5398/CVE-2020-5421/CVE-2021-22118 -->
+        <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
+        <spring-integration.version>5.2.3.RELEASE</spring-integration.version>
+        <spring-security.version>5.2.3.RELEASE</spring-security.version>
     </properties>
 
     <dependencyManagement>
@@ -76,6 +84,17 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring-cloud-starter-openfeign.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-io</groupId>
+                        <artifactId>commons-io</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
