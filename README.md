@@ -1,8 +1,8 @@
 # spring-security-oauth2-learn
 ## 仓库说明
-此项目用于学习Spring Security OAuth2，Demo使用的Api为5.2版本前的，现在提示已经废弃，ps：官方认为自己的授权服务器实现的太差，以后打算用第三方库 :happy:
+此项目用于学习Spring Security OAuth2，Demo使用的Api为5.2版本前的，现在提示已经废弃，ps：最初官方认为自己的授权服务器实现的太差就移除了，后来社区广泛需要授权服务器，官方又重新开发了`spring-security-oauth2-authorization-server
 
-后续有时间使用官方推荐第三方库还会再实现一遍
+后续等官方授权服务器稳定后，本人会继续更新一个基于它的demo。相比此仓库的demo基于OAuth2.0实现，新的授权服务器是基于OAuth2.1协议的。
 
 另外，本仓库均使用授权服务与资源服务分离的方式来编写demo，由于此二者放在同一服务时默认省了很多配置（资源服务器访问授权服务器进行校验token部分），对于后续应用会埋下许多坑，所以分离开来
 
