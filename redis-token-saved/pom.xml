@@ -17,21 +17,13 @@
     </modules>
 
     <dependencies>
-        <!-- Spring Security OAuth2 -->
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
-            <version>${spring-security-oauth2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.62</version>
         </dependency>
     </dependencies>
 </project>

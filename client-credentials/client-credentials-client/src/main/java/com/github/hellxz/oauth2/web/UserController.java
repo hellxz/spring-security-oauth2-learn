@@ -1,6 +1,5 @@
 package com.github.hellxz.oauth2.web;
 
-import com.alibaba.fastjson.JSON;
 import com.github.hellxz.oauth2.dto.UserDto;
 import com.github.hellxz.oauth2.feign.UserFeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +17,7 @@ public class UserController {
     UserFeignClient userClient;
 
     @GetMapping("/user")
-    public String getResourceUser(){
-        UserDto testUser = userClient.getUser("test");
-        return JSON.toJSONString(testUser);
+    public UserDto getResourceUser(){
+        return userClient.getUser("test");
     }
 }
